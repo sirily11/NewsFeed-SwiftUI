@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  NewsFeedSwiftUI
+//  NewsClips
 //
-//  Created by 李其炜 on 10/24/20.
+//  Created by 李其炜 on 10/26/20.
 //
 
 import SwiftUI

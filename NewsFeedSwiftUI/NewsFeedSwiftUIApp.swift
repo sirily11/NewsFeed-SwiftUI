@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct NewsFeedSwiftUIApp: App {
+    @StateObject var newsfeedModal = NewsFeedModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NewsFeedView()
+                .environmentObject(newsfeedModal)
         }
     }
 }
