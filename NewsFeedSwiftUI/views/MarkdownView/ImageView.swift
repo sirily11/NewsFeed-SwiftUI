@@ -10,11 +10,14 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct ImageView: View {
-    var imageSrc : String
+    var imageSrc: String
     var body: some View {
         KFImage(URL(string: imageSrc)!)
-        .resizable()
-        .aspectRatio(contentMode: .fit)
+            .placeholder {
+                ProgressView()
+            }
+            .resizable()
+            .aspectRatio(contentMode: .fit)
     }
 }
 

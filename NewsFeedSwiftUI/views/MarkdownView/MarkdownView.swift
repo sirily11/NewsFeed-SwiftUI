@@ -1,38 +1,79 @@
-//
-//  MarkdownView.swift
-//  NewsFeedUIKit
-//
-//  Created by 李其炜 on 10/29/19.
-//  Copyright © 2019 李其炜. All rights reserved.
-//
-
 import SwiftUI
 
+struct MarkdownNodeView: Identifiable {
+    var view: AnyView
+    var id = UUID()
+}
 
 struct MarkdownView: View {
     var markdownStr: String
-    @State var nodes: [MarkdownNode] = []
+    @State var views: [MarkdownNodeView] = []
 
 
     var body: some View {
         ScrollView {
-            if nodes.count == 0 {
-                Text("Loading")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-            ForEach(nodes) { node in
-                self.containedView(node: node)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
+            LazyVStack {
+                if views.count == 0 {
+                    Text("Loading")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+                ForEach(views) { view in
+                    view.view
+                        .multilineTextAlignment(.leading)
 
+
+                }
             }
         }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear {
                 let parser = MarkdownParser(markdown: self.markdownStr)
                 let nodes = parser.parseMarkdown()
-                self.nodes = nodes
+                var views: [MarkdownNodeView] = []
+                var text: Text? = nil
+
+                for (index, element) in nodes.enumerated() {
+                    if element.type == .link || element.type == .text {
+                        var prev_element: MarkdownNode? = nil
+                        var next_element: MarkdownNode? = nil
+
+                        if index < nodes.count - 1 {
+                            next_element = nodes[index + 1]
+                        }
+
+                        if index > 1 {
+                            prev_element = nodes[index - 1]
+                        }
+
+                        if prev_element?.type == .link || prev_element?.type == .text {
+                            if let t = text {
+                                text = t + textView(node: element)
+                            }
+
+                        } else {
+                            text = textView(node: element)
+                        }
+
+                        if next_element?.type != .text && next_element?.type != .link {
+                            views.append(MarkdownNodeView(view: AnyView(text.padding(.vertical))))
+                        }
+
+                    } else {
+                        views.append(MarkdownNodeView(view: containedView(node: element)))
+
+                    }
+
+                }
+                self.views = views
+        }
+    }
+
+    func textView(node: MarkdownNode) -> Text {
+        switch node.type {
+        case .link:
+            return Text(node.content).foregroundColor(.blue)
+        default:
+            return Text(node.content)
         }
     }
 
@@ -47,8 +88,10 @@ struct MarkdownView: View {
             }
             return AnyView(ContentTextView(content: node.content))
 
+        case .link:
+            return AnyView(Text(node.content).foregroundColor(.blue))
         default:
-            return AnyView(ContentTextView(content: node.content))
+            return AnyView(Text(node.content))
 
 
         }
@@ -59,12 +102,6 @@ struct MarkdownView: View {
 
 struct MarkdownView_Previews: PreviewProvider {
     static var previews: some View {
-
-        MarkdownView(markdownStr: """
-        # This is the title
-        this is the content lol.
-        ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-        """)
+        MarkdownView(markdownStr: "hello world")
     }
 }

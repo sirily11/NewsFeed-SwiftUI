@@ -15,7 +15,6 @@ struct ContentTextView: View {
         Text(content)
             .multilineTextAlignment(.leading)
             .padding(.bottom)
-            
     }
 }
 

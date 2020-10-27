@@ -16,23 +16,29 @@ struct FeedRow: View {
             HStack {
                 if (feed.cover != nil) {
                     KFImage(URL(string: feed.cover!))
+                        .placeholder {
+                            ProgressView()
+                        }
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)
                         .frame(width: 100, height: 100, alignment: .center)
-                        
+
 
                 }
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text(feed.title)
                         .fontWeight(.bold)
                         .padding(.trailing)
                     Text(feed.newsPublisher.name)
                         .fontWeight(.light)
                         .multilineTextAlignment(.leading)
+//                    Text(feed.postedTime)
+//                        .font(.caption2)
+//                        .fontWeight(.bold)
 
                 }
-                .padding(.leading)
+                    .padding(.leading)
                 Spacer()
             }
 

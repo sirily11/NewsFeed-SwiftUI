@@ -15,13 +15,21 @@ struct DetailView: View {
 
         ScrollView {
             VStack(alignment: .leading) {
+                Text(feed.newsPublisher.name)
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .padding(.leading)
                 if (feed.cover != nil) {
                     KFImage(URL(string: feed.cover!))
+                        .placeholder {
+                            ProgressView()
+                        }
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 300, alignment: .center)
                 }
                 MarkdownView(markdownStr: feed.content ?? "")
+                    .padding(.horizontal)
 
                     .navigationTitle(feed.title)
             }

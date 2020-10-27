@@ -51,6 +51,8 @@
 		2546897B2545FE3000597BA8 /* Image+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4CBE32544124E00E73243 /* Image+UIImageView.swift */; };
 		254689842545FE5200597BA8 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 254689832545FE5200597BA8 /* KingfisherSwiftUI */; };
 		2546898D2546FFDA00597BA8 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 2546898C2546FFDA00597BA8 /* SwiftUIPullToRefresh */; };
+		25C180E825472FE3001F6014 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C180E725472FE3001F6014 /* SearchView.swift */; };
+		25C180F625473019001F6014 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C180E725472FE3001F6014 /* SearchView.swift */; };
 		25E4CB9A25440EC900E73243 /* NewsFeedSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4CB9925440EC900E73243 /* NewsFeedSwiftUIApp.swift */; };
 		25E4CB9C25440EC900E73243 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4CB9B25440EC900E73243 /* NewsFeedView.swift */; };
 		25E4CB9E25440EC900E73243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E4CB9D25440EC900E73243 /* Assets.xcassets */; };
@@ -145,6 +147,7 @@
 		2546891F2545FD8A00597BA8 /* NewsClipsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsClipsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		254689232545FD8A00597BA8 /* NewsClipsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsClipsUITests.swift; sourceTree = "<group>"; };
 		254689252545FD8A00597BA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25C180E725472FE3001F6014 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		25E4CB9625440EC900E73243 /* NewsFeedSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsFeedSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E4CB9925440EC900E73243 /* NewsFeedSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedSwiftUIApp.swift; sourceTree = "<group>"; };
 		25E4CB9B25440EC900E73243 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
@@ -303,6 +306,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		25C180EF25472FE9001F6014 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				25C180E725472FE3001F6014 /* SearchView.swift */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
 		25E4CB8D25440EC900E73243 = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +386,7 @@
 		25E4CBCD25440F2200E73243 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				25C180EF25472FE9001F6014 /* search */,
 				254688D02545DF6400597BA8 /* MarkdownView */,
 				254688AF25446C7D00597BA8 /* detail */,
 				254688992544171500597BA8 /* home */,
@@ -649,6 +661,7 @@
 				254689082545FD8900597BA8 /* ContentView.swift in Sources */,
 				2546897B2545FE3000597BA8 /* Image+UIImageView.swift in Sources */,
 				2546895C2545FDD800597BA8 /* ContentTextView.swift in Sources */,
+				25C180F625473019001F6014 /* SearchView.swift in Sources */,
 				2546895B2545FDD800597BA8 /* DetailView.swift in Sources */,
 				254689472545FDC300597BA8 /* NewsFeedView.swift in Sources */,
 				254689722545FE1E00597BA8 /* enum.swift in Sources */,
@@ -692,6 +705,7 @@
 				254688D82545DF6400597BA8 /* ImageView.swift in Sources */,
 				2546889B2544172100597BA8 /* NewsList.swift in Sources */,
 				25E4CBE52544124E00E73243 /* Image+UIImageView.swift in Sources */,
+				25C180E825472FE3001F6014 /* SearchView.swift in Sources */,
 				254688D52545DF6400597BA8 /* ContentTextView.swift in Sources */,
 				254688A32544179400597BA8 /* FeedRow.swift in Sources */,
 				254688F12545EF0900597BA8 /* PublisherList.swift in Sources */,

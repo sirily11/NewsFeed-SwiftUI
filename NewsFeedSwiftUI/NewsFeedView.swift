@@ -13,33 +13,51 @@ struct NewsFeedView: View {
 
 
     var body: some View {
-        NavigationView {
-            NewsList(feeds: newsFeedModel.feeds)
-                .navigationTitle(newsFeedModel.navigationTitleText)
-                .toolbar() {
-                    Button("Publishers", action: {
-                        showPublisher = true
-                    })
-            }
-            Text(newsFeedModel.navigationTitleText )
-        }
+        TabView {
+            NavigationView {
+                NewsList(feeds: newsFeedModel.feeds)
+                    .navigationTitle(newsFeedModel.navigationTitleText)
+                    .toolbar() {
+                        Button("Publishers", action: {
+                            showPublisher = true
+                        })
+                }
+                Text(newsFeedModel.navigationTitleText)
 
-            .onAppear {
-                newsFeedModel.fetchPublisher()
-                newsFeedModel.fetchNews()
             }
-            .sheet(isPresented: $showPublisher) {
-                PublisherList(isShowing: $showPublisher)
 
+
+
+                .onAppear {
+                    newsFeedModel.fetchPublisher()
+                    newsFeedModel.fetchNews()
+                }
+                .sheet(isPresented: $showPublisher) {
+                    PublisherList(isShowing: $showPublisher)
+
+                }
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+            }
+
+            NavigationView {
+              SearchView(feedModel: newsFeedModel)
+                    .navigationTitle("Search")
+            }
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+            }
         }
     }
 }
 
 
 
-struct NewsFeedView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsFeedView()
-            .environmentObject(NewsFeedModel())
+    struct NewsFeedView_Previews: PreviewProvider {
+        static var previews: some View {
+            NewsFeedView()
+                .environmentObject(NewsFeedModel())
+        }
     }
-}

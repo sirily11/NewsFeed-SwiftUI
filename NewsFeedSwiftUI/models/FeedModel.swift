@@ -132,13 +132,13 @@ class NewsFeedModel: ObservableObject {
 
     }
 
-    func search(keyword: String) {
-        let u = "\(newsURL)?search=\(keyword)"
+
+    func search(keyword: String, onSearchResults: @escaping ([Feed]) -> ()) {
+        let u = "\(baseURL)\(newsURL)?search=\(keyword)"
         guard let url = URL(string: u.urlEncoded()) else {
             return
         }
 
-        self.isUpdating = true
         URLSession.shared.dataTask(with: url) {
             (data, resp, err) in
             if err != nil {
@@ -150,10 +150,7 @@ class NewsFeedModel: ObservableObject {
             DispatchQueue.main.async {
                 do {
                     let response = try JSONDecoder().decode(NetworkResponse.self, from: data)
-                    print("Updated")
-                    self.feeds = response.results
-                    self.nextURL = response.next
-                    self.isUpdating = false
+                    onSearchResults(response.results)
                 } catch {
                     print(error)
                 }
@@ -171,5 +168,11 @@ class TestFeedModel: NewsFeedModel {
         self.feeds = test_feeds
         self.publishers = [NewsPublisher(id: 1, name: "People's Daily"), NewsPublisher(id: 1, name: "CNN")]
         self.selectedPublisher = selected_publisher
+//        self.searchedFeeds = test_feeds
     }
+
+    override func search(keyword: String, onSearchResults: @escaping ([Feed]) -> ()) {
+        onSearchResults(test_feeds)
+    }
+
 }
