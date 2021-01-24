@@ -49,12 +49,16 @@ public class MarkdownParser {
     func parseMarkdown() -> [MarkdownNode] {
         var nodes: [MarkdownNode] = []
 
+        let lines = self.makrdown.components(separatedBy: .newlines)
 
-        for line in self.makrdown.components(separatedBy: .newlines) {
+        for (index, line) in lines.enumerated() {
             if line.count == 0 {
                 continue
             }
             nodes += parse(line)
+            if index < lines.count - 1 {
+                nodes.append(MarkdownNode(type: .spacer, content: ""))
+            }
         }
         return nodes
     }
@@ -80,7 +84,9 @@ public class MarkdownParser {
         if let image = image {
             return [parseImage(image)]
         }
-
+        /**
+         parse link
+         */
         let contentStr = parseLink(markdownStr)
 
         let firstPartText = contentStr.start
@@ -95,8 +101,9 @@ public class MarkdownParser {
             }
             return [firstPartNode, link_node]
         }
-
-
+        /**
+        End parse link
+         */
 
         return [firstPartNode]
 
@@ -169,7 +176,7 @@ public class MarkdownParser {
                 // link url
                 var linkURLStr = linkPartStr.replacingOccurrences(of: "[\(linkText)]", with: "")
                 linkURLStr = linkURLStr[1..<linkURLStr.count - 1]
-                
+
                 let linkNode = MarkdownNode(type: .link, content: linkText, link: linkURLStr)
 
                 return (linkNode, String(firstPartStr), String(secondPartStr))

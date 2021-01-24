@@ -30,8 +30,8 @@ struct DetailView: View {
                 }
                 MarkdownView(markdownStr: feed.content ?? "")
                     .padding(.horizontal)
-
                     .navigationTitle(feed.title)
+
             }
 
         }

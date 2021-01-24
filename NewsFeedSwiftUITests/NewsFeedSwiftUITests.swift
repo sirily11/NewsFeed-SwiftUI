@@ -10,7 +10,7 @@ import XCTest
 
 class NewsFeedSwiftUITests: XCTestCase {
 
-    func testParseMarkdownLink(){
+    func testParseMarkdownLink() {
         let markdown = """
         hello [hello](https://google.com) world
         """
@@ -18,6 +18,16 @@ class NewsFeedSwiftUITests: XCTestCase {
         let nodes = parser.parseMarkdown()
         XCTAssertEqual(nodes.count, 3)
         XCTAssertEqual(nodes[1].type, .link)
+    }
+
+    func testSpacerMarkdown() {
+        let markdown = """
+    Hello world
+    Hello world
+    """
+        let parser = MarkdownParser(markdown: markdown)
+        let nodes = parser.parseMarkdown()
+        XCTAssertEqual(nodes.count, 3)
     }
 
 }

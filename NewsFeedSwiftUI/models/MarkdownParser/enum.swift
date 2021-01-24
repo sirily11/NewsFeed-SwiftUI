@@ -12,4 +12,5 @@ enum MarkdownType{
     case image
     case link
     case text
+    case spacer
 }

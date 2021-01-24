@@ -90,6 +90,9 @@ struct MarkdownView: View {
 
         case .link:
             return AnyView(Text(node.content).foregroundColor(.blue))
+
+        case .spacer:
+            return AnyView(Spacer())
         default:
             return AnyView(Text(node.content))
 
@@ -101,7 +104,14 @@ struct MarkdownView: View {
 
 
 struct MarkdownView_Previews: PreviewProvider {
+
+
     static var previews: some View {
-        MarkdownView(markdownStr: "hello world")
+        let markdown = """
+    Hello world
+
+    Hello world
+    """
+        MarkdownView(markdownStr: markdown)
     }
 }
