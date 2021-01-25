@@ -6,32 +6,44 @@
 //
 
 import SwiftUI
+import SwiftUIRefresh
+
 
 
 struct NewsList: View {
-    let feeds: [Feed]
+
     @EnvironmentObject var feedModel: NewsFeedModel
+    @State private var isShowing = false
 
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(feeds) { feed in
-                    FeedRow(feed: feed)
-                    Divider()
-                }
-                if feedModel.isUpdating {
+
+        List {
+            ForEach(feedModel.feeds) { feed in
+                FeedRow(feed: feed)
+            }
+            if feedModel.isUpdating {
+                HStack {
+                    Spacer()
                     ProgressView()
+                    Spacer()
                 }
 
-                if feedModel.nextURL != nil && !feedModel.isUpdating {
-                    Text("Load More")
-                        .onAppear {
-                            feedModel.fetchMore()
-                    }
+            }
+
+            if feedModel.nextURL != nil && !feedModel.isUpdating {
+                Text("Load More")
+                    .onAppear {
+                        feedModel.fetchMore()
                 }
             }
         }
+            .listStyle(PlainListStyle())
 
+            .pullToRefresh(isShowing: $isShowing) {
+                feedModel.fetchNews()
+                feedModel.fetchPublisher()
+                self.isShowing = false
+        }
     }
 }
 
@@ -39,7 +51,7 @@ struct NewsList_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            NewsList(feeds: test_feeds)
+            NewsList()
                 .previewDevice("iPhone 11 Pro")
                 .environmentObject(NewsFeedModel())
 

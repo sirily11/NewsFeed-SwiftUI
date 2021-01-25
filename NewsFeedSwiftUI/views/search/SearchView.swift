@@ -18,10 +18,13 @@ struct SearchView: View {
             SearchBar(onEditingEnd: { keyword in
                 print("Searching")
                 isSearching = true
+
                 feedModel.search(keyword: keyword) { feeds in
-                    self.hasSearched = true
-                    self.feeds = feeds
-                    self.isSearching = false
+                    withAnimation {
+                        self.hasSearched = true
+                        self.feeds = feeds
+                        self.isSearching = false
+                    }
                 }
 
             }) {

@@ -73,10 +73,13 @@ class NewsFeedModel: ObservableObject {
 
             DispatchQueue.main.async {
                 do {
+
                     let response = try JSONDecoder().decode(NetworkResponse.self, from: data)
                     self.feeds = response.results
                     self.nextURL = response.next
                     self.isUpdating = false
+
+
                 } catch {
                     print(error)
                 }
@@ -121,10 +124,13 @@ class NewsFeedModel: ObservableObject {
                 guard let data = data else { return }
 
                 DispatchQueue.main.async {
-                    let response = try! JSONDecoder().decode(NetworkResponse.self, from: data)
-                    self.feeds += response.results
-                    self.nextURL = response.next
-                    self.isUpdating = false
+                    withAnimation {
+                        let response = try! JSONDecoder().decode(NetworkResponse.self, from: data)
+                        self.feeds += response.results
+                        self.nextURL = response.next
+                        self.isUpdating = false
+                    }
+
                 }
 
             }.resume()

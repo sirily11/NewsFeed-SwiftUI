@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct NewsFeedSwiftUIApp: App {
     @StateObject var newsfeedModal = NewsFeedModel()
-    
+    @StateObject var databaseModel = DatabaseModel()
+
     var body: some Scene {
         WindowGroup {
             NewsFeedView()
                 .environmentObject(newsfeedModal)
+                .environmentObject(databaseModel)
         }
     }
 }

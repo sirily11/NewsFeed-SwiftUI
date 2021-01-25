@@ -12,12 +12,26 @@ import KingfisherSwiftUI
 struct ImageView: View {
     var imageSrc: String
     var body: some View {
-        KFImage(URL(string: imageSrc)!)
-            .placeholder {
-                ProgressView()
-            }
-            .resizable()
-            .aspectRatio(contentMode: .fit)
+        NavigationLink(
+            destination: ImageDetailView(imageSrc: imageSrc)
+        ) {
+            KFImage(URL(string: imageSrc)!)
+                .placeholder {
+                    ProgressView()
+                }
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+
+
+        }
+            .contextMenu {
+                Button(action: {
+                    // change country setting
+                }) {
+                    Text("Save To Local")
+                    Image(systemName: "star.fill")
+                }
+        }
     }
 }
 

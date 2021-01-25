@@ -15,7 +15,7 @@ struct NewsFeedView: View {
     var body: some View {
         TabView {
             NavigationView {
-                NewsList(feeds: newsFeedModel.feeds)
+                NewsList()
                     .navigationTitle(newsFeedModel.navigationTitleText)
                     .toolbar() {
                         Button("Publishers", action: {
@@ -26,14 +26,9 @@ struct NewsFeedView: View {
 
             }
 
-
-
-                .onAppear {
-                    newsFeedModel.fetchPublisher()
-                    newsFeedModel.fetchNews()
-                }
                 .sheet(isPresented: $showPublisher) {
                     PublisherList(isShowing: $showPublisher)
+                        .environmentObject(newsFeedModel)
 
                 }
                 .tabItem {
@@ -42,7 +37,16 @@ struct NewsFeedView: View {
             }
 
             NavigationView {
-              SearchView(feedModel: newsFeedModel)
+                LikesView()
+                    .navigationTitle("Likes")
+            }
+                .tabItem {
+                    Image(systemName: "star.fill")
+                    Text("Likes")
+            }
+
+            NavigationView {
+                SearchView(feedModel: newsFeedModel)
                     .navigationTitle("Search")
             }
                 .tabItem {
@@ -50,14 +54,19 @@ struct NewsFeedView: View {
                     Text("Search")
             }
         }
+            .onAppear {
+                newsFeedModel.fetchPublisher()
+                newsFeedModel.fetchNews()
+        }
     }
+
 }
 
 
 
-    struct NewsFeedView_Previews: PreviewProvider {
-        static var previews: some View {
-            NewsFeedView()
-                .environmentObject(NewsFeedModel())
-        }
+struct NewsFeedView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewsFeedView()
+            .environmentObject(NewsFeedModel())
     }
+}
