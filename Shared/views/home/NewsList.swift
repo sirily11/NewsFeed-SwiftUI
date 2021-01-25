@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+#if os(iOS)
 import SwiftUIRefresh
+#endif
 
 
 
@@ -14,9 +16,10 @@ struct NewsList: View {
 
     @EnvironmentObject var feedModel: NewsFeedModel
     @State private var isShowing = false
-
-    var body: some View {
-
+    
+    #if os(iOS)
+    var iosList: some View{
+     
         List {
             ForEach(feedModel.feeds) { feed in
                 FeedRow(feed: feed)
@@ -38,12 +41,55 @@ struct NewsList: View {
             }
         }
             .listStyle(PlainListStyle())
-
+      
             .pullToRefresh(isShowing: $isShowing) {
                 feedModel.fetchNews()
                 feedModel.fetchPublisher()
                 self.isShowing = false
+           
         }
+    
+    }
+#endif
+    
+    #if os(macOS)
+    var macOSList: some View{
+     
+        List {
+            ForEach(feedModel.feeds) { feed in
+                FeedRow(feed: feed)
+            }
+            if feedModel.isUpdating {
+                HStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+
+            }
+
+            if feedModel.nextURL != nil && !feedModel.isUpdating {
+                Text("Load More")
+                    .onAppear {
+                        feedModel.fetchMore()
+                }
+            }
+        }
+            .listStyle(PlainListStyle())
+    
+    }
+    #endif
+
+    var body: some View {
+
+        #if os(macOS)
+            macOSList
+    
+        
+        #else
+            iosList
+        #endif
+  
     }
 }
 

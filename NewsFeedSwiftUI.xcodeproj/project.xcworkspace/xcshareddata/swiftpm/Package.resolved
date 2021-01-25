@@ -20,15 +20,6 @@
         }
       },
       {
-        "package": "MDText",
-        "repositoryURL": "https://github.com/Lambdo-Labs/MDText",
-        "state": {
-          "branch": "master",
-          "revision": "7b1f74239e4b41799a36b404ff30e21fca6fb9d7",
-          "version": null
-        }
-      },
-      {
         "package": "Parma",
         "repositoryURL": "https://github.com/dasautoooo/Parma",
         "state": {

@@ -72,7 +72,7 @@ struct SearchBar: View {
             })
                 .padding(7)
                 .padding(.horizontal, 25)
-                .background(Color(.systemGray6))
+                .background(Color.gray)
                 .cornerRadius(8)
                 .padding(.horizontal, 10)
                 .onTapGesture {

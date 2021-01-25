@@ -63,7 +63,8 @@ struct ImageDetailView: View {
         }
 
             .clipped()
-            .navigationBarTitle("Image", displayMode: .inline)
+            
+//            .navigationTitle("Image", displayMode: .inline)
 
 
     }

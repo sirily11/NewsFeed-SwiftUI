@@ -1,4 +1,8 @@
+#if os(ios)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 extension String {
      

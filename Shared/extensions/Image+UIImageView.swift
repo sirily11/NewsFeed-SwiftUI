@@ -7,7 +7,10 @@
 //
 
 import Foundation
+#if os(ios)
 import UIKit
+
+
 
 extension UIImageView {
     func downloadImageFrom(link link:String, contentMode: UIView.ContentMode) {
@@ -21,3 +24,4 @@ extension UIImageView {
         }).resume()
     }
 }
+#endif

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import KingfisherSwiftUI
-import MDText
 import Parma
 import AVFoundation
 
@@ -18,14 +17,56 @@ struct DetailView: View {
     @EnvironmentObject var databaseModel: DatabaseModel
     let synthesizer = AVSpeechSynthesizer()
 
+    fileprivate func speak() {
+        if !isPlaying {
+            let utterance = AVSpeechUtterance(string: feed.pureText ?? "")
+            utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+            for voice in AVSpeechSynthesisVoice.speechVoices() {
+                if voice.identifier.contains("siri") && voice.language == "zh-CN" {
+                    utterance.voice = voice
+                    break
+                }
+            }
+            if synthesizer.isPaused {
+                synthesizer.continueSpeaking()
+            } else {
+                synthesizer.speak(utterance)
+            }
+
+
+            isPlaying = true
+        } else {
+            synthesizer.pauseSpeaking(at: .word)
+            isPlaying = false
+        }
+    }
+
     var body: some View {
 
         ScrollView {
             VStack(alignment: .leading) {
-                Text(feed.newsPublisher.name)
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .padding(.leading)
+                HStack {
+                    Text(feed.newsPublisher.name)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .padding(.leading)
+
+                    Spacer()
+                    Button(action: {
+                        speak()
+
+                    }) {
+                        if isPlaying {
+                            Image(systemName: "speaker.fill")
+                        } else {
+                            Image(systemName: "speaker")
+                        }
+
+                    }
+                    .padding(.trailing)
+
+                }
+
 
 
                 if (feed.cover != nil) {
@@ -47,9 +88,9 @@ struct DetailView: View {
         }
             .onAppear {
                 like = databaseModel.existFeed(feed: feed)
-                for voice in AVSpeechSynthesisVoice.speechVoices() {
-                    print(voice)
-                }
+//                for voice in AVSpeechSynthesisVoice.speechVoices() {
+//                    print(voice)
+//                }
             }
 
             .toolbar {
@@ -75,27 +116,7 @@ struct DetailView: View {
                 }
 
                 Button(action: {
-                    if !isPlaying {
-                        let utterance = AVSpeechUtterance(string: feed.pureText ?? "")
-                        utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
-                        for voice in AVSpeechSynthesisVoice.speechVoices() {
-                            if voice.identifier.contains("siri") && voice.language == "zh-CN" {
-                                utterance.voice = voice
-                                break
-                            }
-                        }
-                        if synthesizer.isPaused {
-                            synthesizer.continueSpeaking()
-                        } else {
-                            synthesizer.speak(utterance)
-                        }
-
-
-                        isPlaying = true
-                    } else {
-                        synthesizer.pauseSpeaking(at: .word)
-                        isPlaying = false
-                    }
+                    speak()
 
                 }) {
                     if isPlaying {
