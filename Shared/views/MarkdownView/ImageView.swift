@@ -7,31 +7,25 @@
 //
 
 import SwiftUI
-import KingfisherSwiftUI
+import SDWebImageSwiftUI
 
 struct ImageView: View {
+    @EnvironmentObject var detailImageModel: DetailImageViewModel
+    
     var imageSrc: String
     var body: some View {
-        NavigationLink(
-            destination: ImageDetailView(imageSrc: imageSrc)
-        ) {
-            KFImage(URL(string: imageSrc)!)
-                .placeholder {
-                    ProgressView()
-                }
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-
-
-        }
-            .contextMenu {
-                Button(action: {
-                    // change country setting
-                }) {
-                    Text("Save To Local")
-                    Image(systemName: "star.fill")
-                }
-        }
+        
+        WebImage(url: URL(string: imageSrc)!)
+            .placeholder {
+                ProgressView()
+            }
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(maxWidth: .infinity)
+            .onTapGesture {
+                detailImageModel.imageStr = imageSrc
+                detailImageModel.show = true
+            }
     }
 }
 

@@ -40,6 +40,7 @@ struct SearchView: View {
                 LazyVStack {
                     ForEach(feeds) { feed in
                         FeedRow(feed: feed)
+                            .padding()
                         Divider()
 
                     }
@@ -72,7 +73,7 @@ struct SearchBar: View {
             })
                 .padding(7)
                 .padding(.horizontal, 25)
-                .background(Color.gray)
+                .background(Color.secondary)
                 .cornerRadius(8)
                 .padding(.horizontal, 10)
                 .onTapGesture {

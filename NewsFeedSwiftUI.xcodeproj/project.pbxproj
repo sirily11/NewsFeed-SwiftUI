@@ -83,7 +83,17 @@
 		2586A3A225BEBB050069FD28 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A3A025BEBB050069FD28 /* DatabaseModel.swift */; };
 		2586A3AC25BEC0BD0069FD28 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A3AA25BEC0BD0069FD28 /* LikesView.swift */; };
 		2586A3C325BECB1C0069FD28 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 2586A3C225BECB1C0069FD28 /* SwiftDate */; };
+		25AEBADD25FB9A90006922F5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 25AEBADC25FB9A8F006922F5 /* Alamofire */; };
+		25AEBAE725FB9E56006922F5 /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 25AEBAE625FB9E56006922F5 /* ImageViewerRemote */; };
+		25AEBAF025FB9F7A006922F5 /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 25AEBAEF25FB9F7A006922F5 /* ImageViewerRemote */; };
+		25AEBB0B25FB9FD2006922F5 /* DetailImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEBB0A25FB9FD2006922F5 /* DetailImageViewModel.swift */; };
+		25AEBB0C25FB9FD2006922F5 /* DetailImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEBB0A25FB9FD2006922F5 /* DetailImageViewModel.swift */; };
+		25AEBB0D25FB9FD2006922F5 /* DetailImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEBB0A25FB9FD2006922F5 /* DetailImageViewModel.swift */; };
+		25AEBB1F25FBAF20006922F5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 25AEBB1E25FBAF20006922F5 /* Alamofire */; };
+		25AEBB4025FBB250006922F5 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 25AEBB3F25FBB250006922F5 /* SDWebImageSwiftUI */; };
 		25C180F625473019001F6014 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C180E725472FE3001F6014 /* SearchView.swift */; };
+		25FFC94325FB96BC00F4A4C4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 25FFC94225FB96BC00F4A4C4 /* SDWebImageSwiftUI */; };
+		25FFC94C25FB978600F4A4C4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 25FFC94B25FB978600F4A4C4 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +169,8 @@
 		2586A39725BEA59C0069FD28 /* FeedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDB.swift; sourceTree = "<group>"; };
 		2586A3A025BEBB050069FD28 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		2586A3AA25BEC0BD0069FD28 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
+		25AEBB0A25FB9FD2006922F5 /* DetailImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageViewModel.swift; sourceTree = "<group>"; };
+		25AEBB2925FBAF98006922F5 /* NewsFeedMulti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NewsFeedMulti.entitlements; sourceTree = "<group>"; };
 		25C180E725472FE3001F6014 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		25E4CB9925440EC900E73243 /* NewsFeedSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedSwiftUIApp.swift; sourceTree = "<group>"; };
 		25E4CB9B25440EC900E73243 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
@@ -176,6 +188,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AEBAF025FB9F7A006922F5 /* ImageViewerRemote in Frameworks */,
+				25FFC94C25FB978600F4A4C4 /* SDWebImageSwiftUI in Frameworks */,
 				2540D31F25BF0472007ABC5B /* SwiftUIRefresh in Frameworks */,
 				2540D2BE25BF0180007ABC5B /* RealmSwift in Frameworks */,
 				2540D2BC25BF0180007ABC5B /* Parma in Frameworks */,
@@ -188,8 +202,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AEBB4025FBB250006922F5 /* SDWebImageSwiftUI in Frameworks */,
 				2540D2C825BF018D007ABC5B /* RealmSwift in Frameworks */,
 				2540D2C625BF018D007ABC5B /* Parma in Frameworks */,
+				25AEBB1F25FBAF20006922F5 /* Alamofire in Frameworks */,
 				2540D2CA25BF018D007ABC5B /* SwiftDate in Frameworks */,
 				2540D2C225BF018D007ABC5B /* KingfisherSwiftUI in Frameworks */,
 			);
@@ -213,6 +229,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FFC94325FB96BC00F4A4C4 /* SDWebImageSwiftUI in Frameworks */,
+				25AEBADD25FB9A90006922F5 /* Alamofire in Frameworks */,
+				25AEBAE725FB9E56006922F5 /* ImageViewerRemote in Frameworks */,
 				2586A38A25BEA51B0069FD28 /* RealmSwift in Frameworks */,
 				2586A2F525BE4FB00069FD28 /* Parma in Frameworks */,
 				2586A3C325BECB1C0069FD28 /* SwiftDate in Frameworks */,
@@ -400,6 +419,7 @@
 		25E4CB8D25440EC900E73243 = {
 			isa = PBXGroup;
 			children = (
+				25AEBB2925FBAF98006922F5 /* NewsFeedMulti.entitlements */,
 				25E4CB9825440EC900E73243 /* NewsFeedSwiftUI */,
 				254689042545FD8900597BA8 /* NewsClips */,
 				254689172545FD8A00597BA8 /* NewsClipsTests */,
@@ -461,6 +481,7 @@
 		25E4CBD12544115000E73243 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				25AEBB0A25FB9FD2006922F5 /* DetailImageViewModel.swift */,
 				254688C12545DF3700597BA8 /* MarkdownParser */,
 				25E4CBD52544115000E73243 /* Feed.swift */,
 				25E4CBD62544115000E73243 /* FeedModel.swift */,
@@ -501,6 +522,8 @@
 				2540D2BD25BF0180007ABC5B /* RealmSwift */,
 				2540D2BF25BF0180007ABC5B /* SwiftDate */,
 				2540D31E25BF0472007ABC5B /* SwiftUIRefresh */,
+				25FFC94B25FB978600F4A4C4 /* SDWebImageSwiftUI */,
+				25AEBAEF25FB9F7A006922F5 /* ImageViewerRemote */,
 			);
 			productName = "NewsFeedMulti (iOS)";
 			productReference = 2540D16925BEFE54007ABC5B /* NewsFeedMulti.app */;
@@ -524,6 +547,8 @@
 				2540D2C525BF018D007ABC5B /* Parma */,
 				2540D2C725BF018D007ABC5B /* RealmSwift */,
 				2540D2C925BF018D007ABC5B /* SwiftDate */,
+				25AEBB1E25FBAF20006922F5 /* Alamofire */,
+				25AEBB3F25FBB250006922F5 /* SDWebImageSwiftUI */,
 			);
 			productName = "NewsFeedMulti (macOS)";
 			productReference = 2540D17025BEFE54007ABC5B /* NewsFeedMulti.app */;
@@ -584,6 +609,9 @@
 				2586A2F425BE4FB00069FD28 /* Parma */,
 				2586A38925BEA51B0069FD28 /* RealmSwift */,
 				2586A3C225BECB1C0069FD28 /* SwiftDate */,
+				25FFC94225FB96BC00F4A4C4 /* SDWebImageSwiftUI */,
+				25AEBADC25FB9A8F006922F5 /* Alamofire */,
+				25AEBAE625FB9E56006922F5 /* ImageViewerRemote */,
 			);
 			productName = NewsClips;
 			productReference = 254689032545FD8900597BA8 /* NewsClips.app */;
@@ -676,6 +704,9 @@
 				2586A2EB25BE4FA00069FD28 /* XCRemoteSwiftPackageReference "Parma" */,
 				2586A38025BEA50C0069FD28 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				2586A3B925BECB100069FD28 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				25FFC94125FB96BC00F4A4C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				25AEBADB25FB9A8F006922F5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				25AEBAE525FB9E56006922F5 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = 25E4CB9725440EC900E73243 /* Products */;
 			projectDirPath = "";
@@ -762,6 +793,7 @@
 				2540D28A25BF0163007ABC5B /* FeedRow.swift in Sources */,
 				2540D28525BF0163007ABC5B /* NewsList.swift in Sources */,
 				2540D28C25BF0163007ABC5B /* PublisherList.swift in Sources */,
+				25AEBB0C25FB9FD2006922F5 /* DetailImageViewModel.swift in Sources */,
 				2540D26C25BF014D007ABC5B /* FeedDB.swift in Sources */,
 				2540D28825BF0163007ABC5B /* LikesView.swift in Sources */,
 				2540D23425BF0110007ABC5B /* NewsFeedSwiftUIApp.swift in Sources */,
@@ -786,6 +818,7 @@
 				2540D29D25BF0163007ABC5B /* FeedRow.swift in Sources */,
 				2540D29825BF0163007ABC5B /* NewsList.swift in Sources */,
 				2540D29F25BF0163007ABC5B /* PublisherList.swift in Sources */,
+				25AEBB0D25FB9FD2006922F5 /* DetailImageViewModel.swift in Sources */,
 				2540D27A25BF014E007ABC5B /* FeedDB.swift in Sources */,
 				2540D29B25BF0163007ABC5B /* LikesView.swift in Sources */,
 				2540D23325BF0110007ABC5B /* NewsFeedSwiftUIApp.swift in Sources */,
@@ -820,6 +853,7 @@
 				2546895A2545FDD800597BA8 /* ImageView.swift in Sources */,
 				2586A39925BEA59C0069FD28 /* FeedDB.swift in Sources */,
 				2546894F2545FDCD00597BA8 /* PublisherList.swift in Sources */,
+				25AEBB0B25FB9FD2006922F5 /* DetailImageViewModel.swift in Sources */,
 				254689502545FDCD00597BA8 /* test_feeds.swift in Sources */,
 				254689512545FDCD00597BA8 /* FeedRow.swift in Sources */,
 				2586A2E425BE49E50069FD28 /* DetailImageView.swift in Sources */,
@@ -888,6 +922,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NewsFeedMulti.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P9KK452K8P;
 				ENABLE_PREVIEWS = YES;
@@ -900,6 +935,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sirilee.NewsFeedMulti;
 				PRODUCT_NAME = NewsFeedMulti;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -910,6 +946,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NewsFeedMulti.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P9KK452K8P;
 				ENABLE_PREVIEWS = YES;
@@ -922,6 +959,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sirilee.NewsFeedMulti;
 				PRODUCT_NAME = NewsFeedMulti;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1428,6 +1466,30 @@
 				minimumVersion = 6.3.1;
 			};
 		};
+		25AEBADB25FB9A8F006922F5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.1;
+			};
+		};
+		25AEBAE525FB9E56006922F5 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		25FFC94125FB96BC00F4A4C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1500,6 +1562,41 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2586A3B925BECB100069FD28 /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDate;
+		};
+		25AEBADC25FB9A8F006922F5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25AEBADB25FB9A8F006922F5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		25AEBAE625FB9E56006922F5 /* ImageViewerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25AEBAE525FB9E56006922F5 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewerRemote;
+		};
+		25AEBAEF25FB9F7A006922F5 /* ImageViewerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25AEBAE525FB9E56006922F5 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewerRemote;
+		};
+		25AEBB1E25FBAF20006922F5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25AEBADB25FB9A8F006922F5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		25AEBB3F25FBB250006922F5 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25FFC94125FB96BC00F4A4C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		25FFC94225FB96BC00F4A4C4 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25FFC94125FB96BC00F4A4C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		25FFC94B25FB978600F4A4C4 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25FFC94125FB96BC00F4A4C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

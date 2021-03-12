@@ -1,4 +1,4 @@
-#if os(ios)
+#if os(iOS)
 import UIKit
 #elseif os(macOS)
 import AppKit

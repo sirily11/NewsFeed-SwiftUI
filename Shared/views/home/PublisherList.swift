@@ -10,7 +10,7 @@ import SwiftUI
 struct PublisherList: View {
     @Binding var isShowing: Bool
     @EnvironmentObject var newsFeedModel: NewsFeedModel
-
+    
     var body: some View {
         NavigationView {
             Form {
@@ -19,24 +19,26 @@ struct PublisherList: View {
                         ForEach(newsFeedModel.publishers) { publisher in
                             Text(publisher.name).tag(publisher.id)
                         }
-
+                        
                     }
-                        .onChange(of: newsFeedModel.selectedPublisher, perform: { value in
-                            newsFeedModel.fetchNews()
-                        })
-                }
-
-            }
-                .toolbar {
-                    Button("Close", action: {
-                        isShowing = false
-
+                    .onChange(of: newsFeedModel.selectedPublisher, perform: { value in
+                        newsFeedModel.fetchNews()
                     })
+                }
+                
             }
-
+            .frame(minWidth: 300)
+            .padding()
+            .toolbar {
+                Button("Close", action: {
+                    isShowing = false
+                    
+                })
+            }
+            
         }
     }
-
+    
 }
 
 
